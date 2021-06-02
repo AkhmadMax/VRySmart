@@ -43,6 +43,11 @@ public class MatchManager : MonoBehaviour
         StartScreen,
 
         /// <summary>
+        /// Enume mode that indicate the example application is on start screen.
+        /// </summary>
+        MarkerScreen,
+
+        /// <summary>
         /// Enume mode that indicate the example application is on AR screen.
         /// </summary>
         GameScreen,
@@ -260,6 +265,8 @@ public class MatchManager : MonoBehaviour
     /// </summary>
     public GameObject StartScreen;
 
+    public GameObject MarkerScreen;
+
     /// <summary>
     /// The AR Screen which display the AR view, return to lobby button and room number.
     /// </summary>
@@ -270,6 +277,7 @@ public class MatchManager : MonoBehaviour
         LobbyScreen.SetActive(activeScreen == ActiveScreen.LobbyScreen);
         //StatusScreen.SetActive(activeScreen != ActiveScreen.StartScreen);
         StartScreen.SetActive(activeScreen == ActiveScreen.StartScreen);
+        MarkerScreen.SetActive(activeScreen == ActiveScreen.MarkerScreen);
 
         bool switchToGameScreen = activeScreen == ActiveScreen.GameScreen;
         GameScreen.SetActive(switchToGameScreen);

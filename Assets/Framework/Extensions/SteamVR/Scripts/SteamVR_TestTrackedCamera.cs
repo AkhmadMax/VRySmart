@@ -5,7 +5,8 @@ namespace Valve.VR.Extras
 {
     public class SteamVR_TestTrackedCamera : MonoBehaviour
     {
-        public Material material;
+        public Material materialLeft;
+        public Material materialRight;
         public Transform target;
         public bool undistorted = true;
         public bool cropped = true;
@@ -25,7 +26,8 @@ namespace Valve.VR.Extras
         private void OnDisable()
         {
             // Clear the texture when no longer active.
-            material.mainTexture = null;
+            materialLeft.mainTexture = null;
+            materialRight.mainTexture = null;
 
             // The video stream must be symmetrically acquired and released in
             // order to properly disable the stream once there are no consumers.
@@ -47,7 +49,8 @@ namespace Valve.VR.Extras
             // buffer which is updated in lock-step with its associated pose.
             // (You actually really only need to call any of the accessors which
             // internally call Update on the SteamVR_TrackedCamera.VideoStreamTexture).
-            material.mainTexture = texture;
+            materialLeft.mainTexture = texture;
+            materialRight.mainTexture = texture;
 
             // Adjust the height of the quad based on the aspect to keep the texels square.
             float aspect = (float)texture.width / texture.height;
@@ -58,18 +61,23 @@ namespace Valve.VR.Extras
             if (cropped)
             {
                 VRTextureBounds_t bounds = source.frameBounds;
-                material.mainTextureOffset = new Vector2(bounds.uMin, bounds.vMin);
+                materialLeft.mainTextureOffset = new Vector2(bounds.uMin, bounds.vMin);
+                materialRight.mainTextureOffset = new Vector2(bounds.uMin, bounds.vMin);
 
                 float du = bounds.uMax - bounds.uMin;
                 float dv = bounds.vMax - bounds.vMin;
-                material.mainTextureScale = new Vector2(du, dv);
+                materialLeft.mainTextureScale = new Vector2(du, dv);
+                materialRight.mainTextureScale = new Vector2(du, dv);
 
                 aspect *= Mathf.Abs(du / dv);
             }
             else
             {
-                material.mainTextureOffset = Vector2.zero;
-                material.mainTextureScale = new Vector2(1, -1);
+                materialLeft.mainTextureOffset = new Vector2(0, 0.25f);
+                materialLeft.mainTextureScale = new Vector2(1, -1);
+
+                materialRight.mainTextureOffset = new Vector2(0, -0.25f);
+                materialRight.mainTextureScale = new Vector2(1, -1);
             }
 
             target.localScale = new Vector3(1, 1.0f / aspect, 1);

@@ -110,6 +110,7 @@ namespace Valve.VR
                 if (_texture == null)
                 {
                     _texture = Texture2D.CreateExternalTexture((int)header.nWidth, (int)header.nHeight, TextureFormat.RGBA32, false, false, nativeTex);
+                    _texture.name = "Vive Camera Feed";
 
                     uint width = 0, height = 0;
                     var frameBounds = new VRTextureBounds_t();
