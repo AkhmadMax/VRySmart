@@ -88,8 +88,6 @@ namespace PaperPlaneTools.AR
 
 
 		public bool undistorted = true;
-		public Material materialLeft;
-
 
 		private void OnEnable()
 		{
@@ -105,9 +103,6 @@ namespace PaperPlaneTools.AR
 
 		private void OnDisable()
 		{
-			// Clear the texture when no longer active.
-			materialLeft.mainTexture = null;
-
 			// The video stream must be symmetrically acquired and released in
 			// order to properly disable the stream once there are no consumers.
 			SteamVR_TrackedCamera.VideoStreamTexture source = SteamVR_TrackedCamera.Source(undistorted);
