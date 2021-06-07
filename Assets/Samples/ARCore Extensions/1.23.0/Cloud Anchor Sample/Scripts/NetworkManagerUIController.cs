@@ -292,8 +292,9 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
                     button.GetComponentInChildren<Text>().text = text;
                     button.GetComponentInChildren<Button>().onClick.AddListener(() =>
                         OnJoinRoomClicked(match));
-                    //button.GetComponentInChildren<Button>().onClick.AddListener(
-                    //    CloudAnchorsExampleController.OnEnterResolvingModeClick);
+                    button.GetComponentInChildren<Button>().onClick.AddListener(
+                        CloudAnchorsExampleController.OnEnterResolvingModeClick);
+
                     button.SetActive(true);
                 }
             }
@@ -367,7 +368,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 #pragma warning disable 618
             NetworkManager.Shutdown();
 #pragma warning restore 618
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("CloudAnchors");
         }
 
         /// <summary>

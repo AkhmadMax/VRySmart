@@ -82,11 +82,5 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 
             OnClientDisconnected?.Invoke();
         }
-
-        public override void OnServerConnect(NetworkConnection connection)
-        {
-            base.OnServerConnect(connection);
-            Debug.Log("Client " + connection.connectionId + " Connected!");
-        }
     }
 }

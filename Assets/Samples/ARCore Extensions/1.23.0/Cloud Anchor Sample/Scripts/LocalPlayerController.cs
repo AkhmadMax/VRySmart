@@ -20,7 +20,6 @@
 
 namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 {
-    using System;
     using UnityEngine;
     using UnityEngine.Networking;
     using UnityEngine.XR.ARFoundation;

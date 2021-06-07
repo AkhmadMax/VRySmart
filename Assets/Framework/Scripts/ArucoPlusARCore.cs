@@ -1,4 +1,5 @@
-namespace PaperPlaneTools.AR {
+namespace PaperPlaneTools.AR
+{
 	using OpenCvSharp;
 
 	using UnityEngine;
@@ -7,8 +8,9 @@ namespace PaperPlaneTools.AR {
 	using System;
 	using System.Collections.Generic;
 	using UnityEngine.UI;
-	
-	public class ArucoPlusARCore : ViveCamera {
+
+	public class ArucoPlusARCore : ViveCamera
+	{
 		[Serializable]
 		public class MarkerObject
 		{
@@ -40,30 +42,37 @@ namespace PaperPlaneTools.AR {
 		/// </summary>
 		private Dictionary<int, List<MarkerOnScene>> gameObjects = new Dictionary<int, List<MarkerOnScene>>();
 
-		void Start () {
-			markerDetector = new MarkerDetector ();
+		void Start()
+		{
+			markerDetector = new MarkerDetector();
 
-			foreach (MarkerObject markerObject in markers) {
+			foreach (MarkerObject markerObject in markers)
+			{
 				gameObjects.Add(markerObject.markerId, new List<MarkerOnScene>());
 			}
 
 		}
 
-		protected override bool ProcessTexture(Texture2D input, ref Texture2D output) {
-			Mat img = Unity.TextureToMat (input, TextureParameters);
+		protected override bool ProcessTexture(Texture2D input, ref Texture2D output)
+		{
+			Mat img = Unity.TextureToMat(input, TextureParameters);
 			ProcessFrame(img, img.Cols, img.Rows);
 			output = Unity.MatToTexture(img, output);
 			return true;
 		}
 
-		private void ProcessFrame (Mat mat, int width, int height) {
-			List<int> markerIds = markerDetector.Detect (mat, width, height);
+		private void ProcessFrame(Mat mat, int width, int height)
+		{
+			List<int> markerIds = markerDetector.Detect(mat, width, height);
 
 			int count = 0;
-			foreach (MarkerObject markerObject in markers) {
+			foreach (MarkerObject markerObject in markers)
+			{
 				List<int> foundedMarkers = new List<int>();
-				for (int i=0; i<markerIds.Count; i++) {
-					if (markerIds[i] == markerObject.markerId) {
+				for (int i = 0; i < markerIds.Count; i++)
+				{
+					if (markerIds[i] == markerObject.markerId)
+					{
 						foundedMarkers.Add(i);
 						count++;
 					}
@@ -73,14 +82,54 @@ namespace PaperPlaneTools.AR {
 			}
 		}
 
-		private void ProcessMarkesWithSameId(MarkerObject markerObject, List<MarkerOnScene> gameObjects, List<int> foundedMarkers) {
+		void ProcessSingleMarker(MarkerObject markerObject, List<MarkerOnScene> gameObjects, List<int> foundedMarkers)
+		{
+			if (foundedMarkers.Count > 0 && GameObject.Find("LocalPlayer"))
+			{
+				if (gameObjects.Count == 0)
+				{
+					GameObject gameObject = GameObject.FindGameObjectWithTag("Marker");
+					//if (!gameObject)
+					//    GameObject.Find("LocalPlayer").GetComponent<LocalPlayerController>().CmdSpawnMarker();
+
+					gameObject = GameObject.FindGameObjectWithTag("Marker");
+
+					if (gameObject)
+					{
+						gameObject.transform.parent = GameObject.FindGameObjectWithTag("MainCamera").transform;
+						MarkerOnScene markerOnScene = new MarkerOnScene()
+						{
+							gameObject = gameObject
+						};
+						gameObjects.Add(markerOnScene);
+
+						Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(foundedMarkers[0]);
+						PositionObject(markerOnScene.gameObject, transforMatrix);
+					}
+
+
+
+				}
+				else
+				{
+					MarkerOnScene markerOnScene = gameObjects[0];
+					Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(foundedMarkers[0]);
+					PositionObject(markerOnScene.gameObject, transforMatrix);
+				}
+			}
+		}
+
+		private void ProcessMarkesWithSameId(MarkerObject markerObject, List<MarkerOnScene> gameObjects, List<int> foundedMarkers)
+		{
 			int index = 0;
-		
+
 			index = gameObjects.Count - 1;
-			while (index >= 0) {
+			while (index >= 0)
+			{
 				MarkerOnScene markerOnScene = gameObjects[index];
 				markerOnScene.bestMatchIndex = -1;
-				if (markerOnScene.destroyAt > 0 && markerOnScene.destroyAt < Time.fixedTime) {
+				if (markerOnScene.destroyAt > 0 && markerOnScene.destroyAt < Time.fixedTime)
+				{
 					Destroy(markerOnScene.gameObject);
 					gameObjects.RemoveAt(index);
 				}
@@ -90,40 +139,50 @@ namespace PaperPlaneTools.AR {
 			index = foundedMarkers.Count - 1;
 
 			// Match markers with existing gameObjects
-			while (index >= 0) {
+			while (index >= 0)
+			{
 				int markerIndex = foundedMarkers[index];
 				Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(markerIndex);
 				Vector3 position = MatrixHelper.GetPosition(transforMatrix);
 
 				float minDistance = float.MaxValue;
 				int bestMatch = -1;
-				for (int i=0; i<gameObjects.Count; i++) {
-					MarkerOnScene markerOnScene = gameObjects [i];
-					if (markerOnScene.bestMatchIndex >= 0) {
+				for (int i = 0; i < gameObjects.Count; i++)
+				{
+					MarkerOnScene markerOnScene = gameObjects[i];
+					if (markerOnScene.bestMatchIndex >= 0)
+					{
 						continue;
 					}
 					float distance = Vector3.Distance(markerOnScene.gameObject.transform.position, position);
-					if (distance<minDistance) {
+					if (distance < minDistance)
+					{
 						bestMatch = i;
 					}
 				}
 
-				if (bestMatch >=0) {
+				if (bestMatch >= 0)
+				{
 					gameObjects[bestMatch].bestMatchIndex = markerIndex;
 					foundedMarkers.RemoveAt(index);
-				} 
+				}
 				--index;
 			}
 
 			//Destroy excessive objects
 			index = gameObjects.Count - 1;
-			while (index >= 0) {
+			while (index >= 0)
+			{
 				MarkerOnScene markerOnScene = gameObjects[index];
-				if (markerOnScene.bestMatchIndex < 0) {
-					if (markerOnScene.destroyAt < 0) {
+				if (markerOnScene.bestMatchIndex < 0)
+				{
+					if (markerOnScene.destroyAt < 0)
+					{
 						markerOnScene.destroyAt = Time.fixedTime + 0.2f;
 					}
-				} else {
+				}
+				else
+				{
 					markerOnScene.destroyAt = -1f;
 					int markerIndex = markerOnScene.bestMatchIndex;
 					Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(markerIndex);
@@ -133,10 +192,12 @@ namespace PaperPlaneTools.AR {
 			}
 
 			//Create objects for markers not matched with any game object
-			foreach (int markerIndex in foundedMarkers) {
+			foreach (int markerIndex in foundedMarkers)
+			{
 				GameObject gameObject = Instantiate(markerObject.markerPrefab);
 				gameObject.transform.parent = GameObject.FindGameObjectWithTag("MainCamera").transform;
-				MarkerOnScene markerOnScene = new MarkerOnScene() {
+				MarkerOnScene markerOnScene = new MarkerOnScene()
+				{
 					gameObject = gameObject
 				};
 				gameObjects.Add(markerOnScene);
@@ -146,14 +207,15 @@ namespace PaperPlaneTools.AR {
 			}
 		}
 
-		private void PositionObject(GameObject gameObject, Matrix4x4 transformMatrix) {
-			Matrix4x4 matrixY = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, new Vector3 (1, -1, 1));
-			Matrix4x4 matrixZ = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, new Vector3 (1, 1, -1));
+		private void PositionObject(GameObject gameObject, Matrix4x4 transformMatrix)
+		{
+			Matrix4x4 matrixY = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(1, -1, 1));
+			Matrix4x4 matrixZ = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(1, 1, -1));
 			Matrix4x4 matrix = matrixY * transformMatrix * matrixZ;
 
-			gameObject.transform.localPosition = MatrixHelper.GetPosition (matrix);
-			gameObject.transform.localRotation = MatrixHelper.GetQuaternion (matrix);
-			gameObject.transform.localScale = MatrixHelper.GetScale (matrix);
+			gameObject.transform.localPosition = MatrixHelper.GetPosition(matrix);
+			gameObject.transform.localRotation = MatrixHelper.GetQuaternion(matrix);
+			gameObject.transform.localScale = MatrixHelper.GetScale(matrix);
 		}
 	}
 }

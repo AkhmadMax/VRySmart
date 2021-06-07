@@ -108,7 +108,9 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
                 .GetComponent<CloudAnchorsExampleController>();
             _anchorManager = _cloudAnchorsExampleController.AnchorManager;
             _anchorMesh = transform.Find("AnchorMesh").gameObject;
-            _anchorMesh.SetActive(false);
+            
+            if(SystemInfo.deviceType == DeviceType.Handheld)
+                _anchorMesh.SetActive(false);
         }
 
         /// <summary>
@@ -116,7 +118,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// </summary>
         public override void OnStartClient()
         {
-            if (_clouAnchorId != string.Empty)
+            if (_clouAnchorId != string.Empty && SystemInfo.deviceType == DeviceType.Handheld)
             {
                 _shouldResolve = true;
             }
