@@ -5,6 +5,7 @@
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.2.3",
     "com.unity.multiplayer-hlapi": "1.0.8",
+    "com.unity.renderstreaming": "file:C:/Projects/Thesis/Implementation/UnityRenderStreaming-3.1.0-exp.1/com.unity.renderstreaming",
     "com.unity.test-framework": "1.1.22",
     "com.unity.textmeshpro": "2.1.1",
     "com.unity.timeline": "1.2.18",
