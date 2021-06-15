@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 
 /// </summary>
-public class WebcamToRawImage : MonoBehaviour
+public class WebCamToRawImage : MonoBehaviour
 {
     [SerializeField, Tooltip("Device index of web camera")]
     private int deviceIndex = 0;
