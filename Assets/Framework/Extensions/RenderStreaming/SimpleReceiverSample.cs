@@ -35,6 +35,7 @@ class SimpleReceiverSample : MonoBehaviour
         }
         connection.CreateConnection(connectionId);
 
+        canvas.gameObject.SetActive(true);
         AttachRemoteImageToRemotePlayerPos();
     }
 
@@ -49,6 +50,7 @@ class SimpleReceiverSample : MonoBehaviour
     {
         connection.DeleteConnection(connectionId);
         connectionId = String.Empty;
+        canvas.gameObject.SetActive(false);
     }
 
     public void ToggleSession(bool enabled)

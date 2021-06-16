@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -3825411643785574572}
   - component: {fileID: 4536450231757288132}
   - component: {fileID: 7356297735626079632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SimplePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 7337783275435950742}
   - component: {fileID: 2730225476008571810}
   - component: {fileID: 3131956073079307198}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Phone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 5382729465256921517}
   - component: {fileID: 4174930563477610741}
   - component: {fileID: 2179178036141665067}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Orbit
   m_TagString: Player
   m_Icon: {fileID: 0}
