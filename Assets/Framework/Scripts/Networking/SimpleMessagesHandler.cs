@@ -4,9 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.Networking;
+using UnityEngine.Events;
+
+[Serializable]
+public class OnCameraMsgEvent : UnityEvent<bool> { }
 
 public class SimpleMessagesHandler : NetworkBehaviour
 {
+    public OnCameraMsgEvent OnCameraMsgReceived;
+
     public override void OnStartServer()
     {
         Debug.Log("OnStartServer");
@@ -18,6 +24,7 @@ public class SimpleMessagesHandler : NetworkBehaviour
     {
         int value = netMsg.ReadMessage<IntegerMessage>().value;
         Debug.Log(value);
+        OnCameraMsgReceived?.Invoke(value == 0 ? false : true);
     }
 
     public void SendCameraMsg(bool enabled)
