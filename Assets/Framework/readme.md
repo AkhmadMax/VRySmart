@@ -13,6 +13,7 @@ Unity 2019.4
 - Multiplayer HLAPI
 - OpenVR (Desktop)
 - Input System
+- ViveSR
 
 ## Android support
 
@@ -23,3 +24,9 @@ Unity 2019.4
 
 ### Project settings
 Player -> Other Settings -> Active input handling -> Both 
+
+
+
+## Hacks
+- Issue: Compliation conflicts for Android if deprecated scripts ViveSR_StaticColliderPool.cs, ViveSR_StaticColliderInfo.cs from ViveSR package is part of the project
+    Solution: Removed the scripts

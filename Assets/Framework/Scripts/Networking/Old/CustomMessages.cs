@@ -6,4 +6,5 @@ public class CustomMsgType
     public static short RegNumCmd = MsgType.Highest + 2;
     public static short SendNumCmd = MsgType.Highest + 3;
     public static short Calibration = MsgType.Highest + 4;
+    public static short Camera = MsgType.Highest + 5;
 }
