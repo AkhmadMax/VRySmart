@@ -29,29 +29,6 @@ public class OpenCVMat : MonoBehaviour
     double CxLeft;
     double CyLeft;
 
-    //void OnCompleteReadback(AsyncGPUReadbackRequest request)
-    //{
-    //    if (request.hasError)
-    //    {
-    //        Debug.Log("GPU readback error detected.");
-    //        return;
-    //    }
-
-    //    var tex = new Texture2D(ViveSR_DualCameraImageCapture.UndistortedImageWidth, ViveSR_DualCameraImageCapture.UndistortedImageHeight, TextureFormat.RGBA32, false);
-    //    tex.LoadRawTextureData(request.GetData<uint>());
-    //    tex.Apply();
-    //    Graphics.CopyTexture(tex, leftCPU);
-    //    Destroy(tex);
-
-    //    Mat mat = OpenCvSharp.Unity.TextureToMat(leftCPU);
-    //    Mat grayMat = new Mat();
-    //    Cv2.CvtColor(mat, grayMat, ColorConversionCodes.BGRA2GRAY);
-    //    OpenCvSharp.Unity.MatToTexture(grayMat, gray);
-
-    //    grayMat.Dispose();
-    //    mat.Dispose();
-    //}
-
     void Update()
     {
         if(ViveSR.FrameworkStatus == FrameworkStatus.WORKING)
@@ -107,14 +84,32 @@ public class OpenCVMat : MonoBehaviour
 	{
         List<int> markerIds = markerDetector.Detect(mat, width, height, focalLengthLeft, CxLeft, CyLeft);
 
-        for (int i = 0; i < markerIds.Count; i++)
+        if(markerIds.Count > 0)
         {
-            if(markerIds[i] == 0)
+            for (int i = 0; i < markerIds.Count; i++)
             {
-                Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(i);
-                PositionObject(markerPrefab, transforMatrix);
+                if (markerIds[i] == 0)
+                {
+                    StopAllCoroutines();
+                    if(!markerPrefab.activeInHierarchy)
+                        markerPrefab.SetActive(true);
+
+                    Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(i);
+                    PositionObject(markerPrefab, transforMatrix);
+                }
             }
         }
+        else if(markerPrefab.activeInHierarchy)
+        {
+            StartCoroutine(WaitAndDisable());
+        }
+
+    }
+
+    IEnumerator WaitAndDisable()
+    {
+        yield return new WaitForSeconds(0.3f);
+        markerPrefab.SetActive(false);
     }
 
     private void PositionObject(GameObject markerPrefab, Matrix4x4 transformMatrix)
