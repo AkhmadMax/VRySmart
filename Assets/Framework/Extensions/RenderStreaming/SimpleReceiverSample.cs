@@ -2,6 +2,8 @@ using System;
 using Unity.RenderStreaming;
 using UnityEngine;
 using UnityEngine.UI;
+using Vive.Plugin.SR;
+
 
 class SimpleReceiverSample : MonoBehaviour
 {
@@ -14,6 +16,7 @@ class SimpleReceiverSample : MonoBehaviour
 #pragma warning restore 0649
 
     private string connectionId;
+    private bool initialized;
 
     void Awake()
     {
@@ -25,6 +28,15 @@ class SimpleReceiverSample : MonoBehaviour
         if (renderStreaming.runOnAwake)
             return;
         renderStreaming.Run();
+    }
+
+    private void Update()
+    {
+        if (ViveSR.FrameworkStatus == FrameworkStatus.WORKING && !initialized)
+        {
+            StartSession();
+            initialized = true;
+        }
     }
 
     public void StartSession()
@@ -42,7 +54,7 @@ class SimpleReceiverSample : MonoBehaviour
     private void AttachRemoteImageToRemotePlayerPos()
     {
         canvas.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
-        canvas.transform.localPosition = Vector3.zero + Vector3.up * 0.2f;
+        canvas.transform.localPosition = Vector3.zero - Vector3.forward * 0.006f;
         canvas.transform.localRotation = Quaternion.identity;
     }
 

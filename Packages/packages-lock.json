@@ -1,16 +1,27 @@
 {
   "dependencies": {
-    "com.google.ar.core.arfoundation.extensions": {
-      "version": "file:C:/Projects/Thesis/Implementation/arcore-unity-extensions-1.23.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+    "com.unity.barracuda": {
+      "version": "2.0.0-pre.3",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
-        "com.unity.xr.arfoundation": "4.1.0-preview.10",
-        "com.unity.xr.arcore": "4.1.0-preview.10"
-      }
+        "com.unity.burst": "1.3.4",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.burst": {
+      "version": "1.3.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "1.2.16",
+      "version": "1.6.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -31,11 +42,20 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "1.1.4",
+      "version": "1.2.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ide.visualstudio": {
+      "version": "2.0.11",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.9"
       },
       "url": "https://packages.unity.com"
     },
@@ -49,6 +69,13 @@
     "com.unity.inputsystem": {
       "version": "1.0.2",
       "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.mathematics": {
+      "version": "1.2.1",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -72,13 +99,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.renderstreaming": {
-      "version": "file:C:/Projects/Thesis/Implementation/UnityRenderStreaming-3.1.0-exp.1/com.unity.renderstreaming",
+      "version": "3.1.0-exp.1",
       "depth": 0,
-      "source": "local",
+      "source": "registry",
       "dependencies": {
-        "com.unity.webrtc": "2.4.0-exp.2",
+        "com.unity.webrtc": "2.4.0-exp.3",
         "com.unity.inputsystem": "1.0.2"
-      }
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.subsystemregistration": {
       "version": "1.1.0",
@@ -90,7 +118,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.22",
+      "version": "1.1.27",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -101,7 +129,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "2.1.1",
+      "version": "2.1.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -131,7 +159,7 @@
       }
     },
     "com.unity.webrtc": {
-      "version": "2.4.0-exp.2",
+      "version": "2.4.0-exp.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -210,6 +238,15 @@
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
+    },
+    "jp.ikep.mediapipe.selfiesegmentation": {
+      "version": "https://github.com/creativeIKEP/SelfieSegmentationBarracuda.git?path=Packages/SelfieSegmentationBarracuda#v1.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.barracuda": "2.0.0-pre.3"
+      },
+      "hash": "ffb03efbbc7c0e3aa014441fe72bc09b8ff63240"
     },
     "nuget.mono-cecil": {
       "version": "0.1.6-preview",

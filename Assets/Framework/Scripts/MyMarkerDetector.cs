@@ -32,7 +32,7 @@ public class MyMarkerDetector
 
 		// Create default parameres for detection
 		DetectorParameters detectorParameters = DetectorParameters.Create();
-		detectorParameters.MinMarkerPerimeterRate = 0.001;
+		detectorParameters.MinMarkerPerimeterRate = 0.00001;
 
 		// Dictionary holds set of all available markers
 		Dictionary dictionary = CvAruco.GetPredefinedDictionary(PredefinedDictionaryName.Dict4X4_50);

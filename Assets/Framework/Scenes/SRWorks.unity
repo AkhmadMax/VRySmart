@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045786cf504bd7347842d6948241cbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  urlSignaling: ws://192.168.0.211
+  urlSignaling: ws://192.168.0.15
   signalingType: Unity.RenderStreaming.Signaling.WebSocketSignaling
   iceServers:
   - credential: 
@@ -543,6 +543,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1600526932}
     m_Modifications:
+    - target: {fileID: 1480055563512912, guid: 2b918cf92fa6ad648a852a0da59a1d41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878821158450440, guid: 2b918cf92fa6ad648a852a0da59a1d41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4968689089773956, guid: 2b918cf92fa6ad648a852a0da59a1d41, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -574,6 +582,51 @@ PrefabInstance:
     - target: {fileID: 4968689089773956, guid: 2b918cf92fa6ad648a852a0da59a1d41, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20013133695134920, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20143271132805038, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20300910139860974, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20437555769870686, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20853377189533624, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114013825118868642, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: InitializeDepthModule
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114013825118868642, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: InitializeAISceneModule
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114013825118868642, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: InitializeDepthMeshModule
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114013825118868642, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: InitializeRigidReconstructionModule
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b918cf92fa6ad648a852a0da59a1d41, type: 3}
@@ -732,6 +785,25 @@ Transform:
   m_Father: {fileID: 2146530296}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &563620256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1939339243347982, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 502762468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &563620259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563620256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973403d39c976d54080dbbefb23b18f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightCam: 0
 --- !u!1 &666095114
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973403d39c976d54080dbbefb23b18f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightCam: 1
 --- !u!1 &868301231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee3ab9f75f7fd542b9038c99ada4747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkAddress: 192.168.0.211
+  networkAddress: 192.168.0.15
   isServer: 1
 --- !u!1 &1302613838
 GameObject:

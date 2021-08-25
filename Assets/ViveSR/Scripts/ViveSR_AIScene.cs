@@ -47,13 +47,13 @@ namespace Vive.Plugin.SR
         {
             PreviousMode = ViveSR_DualCameraRig.Instance.Mode;
             PreviousDepthMode = ViveSR_DualCameraImageRenderer.UpdateDepthMaterial;
-            ViveSR_DualCameraRig.Instance.SetMode(DualCameraDisplayMode.VIRTUAL);
+            //ViveSR_DualCameraRig.Instance.SetMode(DualCameraDisplayMode.VIRTUAL);
             for (int i = 0; i < 2; i++)
                 AIObject[i].SetActive(true);
         }
         public void StopHumanCut()
         {
-            ViveSR_DualCameraRig.Instance.SetMode(PreviousMode);
+            //ViveSR_DualCameraRig.Instance.SetMode(PreviousMode);
             ViveSR_DualCameraImageRenderer.UpdateDepthMaterial= PreviousDepthMode;
             for (int i = 0; i < 2; i++)
                 AIObject[i].SetActive(false);

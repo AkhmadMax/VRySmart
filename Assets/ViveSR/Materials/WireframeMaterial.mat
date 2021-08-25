@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: WireframeMaterial
   m_Shader: {fileID: 4800000, guid: e5aef1057df039342b7ce4386af8ddca, type: 3}
   m_ShaderKeywords: _EMISSION
@@ -72,7 +73,7 @@ Material:
     - _SrcBlend: 1
     - _StencilComp: 3
     - _StencilValue: 0
-    - _Thickness: 0
+    - _Thickness: 600
     - _UVSec: 0
     - _ZTest: 4
     - _ZWrite: 1
