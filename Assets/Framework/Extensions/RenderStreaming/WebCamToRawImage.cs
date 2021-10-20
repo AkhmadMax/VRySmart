@@ -18,6 +18,11 @@ public class WebCamToRawImage : MonoBehaviour
     protected virtual void Start()
     {
         m_startVideoCorutine = StartCoroutine(StartVideo());
+        
+        foreach(WebCamDevice device in WebCamTexture.devices)
+        {
+            Debug.Log(device.name);
+        }
     }
 
     protected virtual void OnEnable()

@@ -30,3 +30,9 @@ Player -> Other Settings -> Active input handling -> Both
 ## Hacks
 - Issue: Compliation conflicts for Android if deprecated scripts ViveSR_StaticColliderPool.cs, ViveSR_StaticColliderInfo.cs from ViveSR package is part of the project
     Solution: Removed the scripts
+
+
+# Attributions
+https://sketchfab.com/3d-models/lightsaber-starwarshype-0dff87970ba44138982fcb132d3e667d
+https://freesound.org/people/joe93barlow/sounds/78674/
+https://freesound.org/people/gyzhor/sounds/47127/

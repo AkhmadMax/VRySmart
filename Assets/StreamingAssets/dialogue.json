@@ -1,0 +1,8 @@
+{
+    "intro" : "Welcome aboard!\n\nTake a look at the device you are provided with and press \"Start\" when you are ready to continue",
+    "device" : "This is your personal multipurpose device as well as communication interface. Just activate one of the modes that you see in the list to move on",
+    "slingshot" : "You have activated slingshot mechanism, try to shoot these cans by pulling the carret towards you then release it. Keep shooting until no cans left on the shelf",
+    "lightsaber" : "It is a lightsaber. Move it slowly. But don't be afraid, it is only a demonstration copy. When you played enough, just press the Power button on the handle to switch it off",
+    "camera" : "You're now in camera mode. You can switch between the front and back facing cameras by pressing corresponding button. There is not much to capture, but we can make a selfie if you want.",
+    "messenger" : "Here you can check your message from home"
+}

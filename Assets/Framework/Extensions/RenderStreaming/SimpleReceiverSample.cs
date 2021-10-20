@@ -9,19 +9,19 @@ class SimpleReceiverSample : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] private RenderStreaming renderStreaming;
-    [SerializeField] private Canvas canvas;
-    [SerializeField] private RawImage remoteVideoImage;
-    [SerializeField] private ReceiveVideoViewer receiveVideoViewer;
+    //[SerializeField] private Canvas canvas;
+    //[SerializeField] private RawImage remoteVideoImage;
+    //[SerializeField] private ReceiveVideoViewer receiveVideoViewer;
     [SerializeField] private SingleConnection connection;
 #pragma warning restore 0649
 
     private string connectionId;
     private bool initialized;
 
-    void Awake()
-    {
-        receiveVideoViewer.OnUpdateReceiveTexture += texture => remoteVideoImage.texture = texture;
-    }
+    //void Awake()
+    //{
+    //    receiveVideoViewer.OnUpdateReceiveTexture += texture => remoteVideoImage.texture = texture;
+    //}
 
     void Start()
     {
@@ -39,6 +39,11 @@ class SimpleReceiverSample : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        StopSession();
+    }
+
     public void StartSession()
     {
         if (string.IsNullOrEmpty(connectionId))
@@ -47,22 +52,22 @@ class SimpleReceiverSample : MonoBehaviour
         }
         connection.CreateConnection(connectionId);
 
-        canvas.gameObject.SetActive(true);
-        AttachRemoteImageToRemotePlayerPos();
+        //canvas.gameObject.SetActive(true);
+        //AttachRemoteImageToRemotePlayerPos();
     }
 
-    private void AttachRemoteImageToRemotePlayerPos()
-    {
-        canvas.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
-        canvas.transform.localPosition = Vector3.zero - Vector3.forward * 0.006f;
-        canvas.transform.localRotation = Quaternion.identity;
-    }
+    //private void AttachRemoteImageToRemotePlayerPos()
+    //{
+    //    canvas.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
+    //    canvas.transform.localPosition = Vector3.zero - Vector3.forward * 0.006f;
+    //    canvas.transform.localRotation = Quaternion.identity;
+    //}
 
     public void StopSession()
     {
         connection.DeleteConnection(connectionId);
         connectionId = String.Empty;
-        canvas.gameObject.SetActive(false);
+        //canvas.gameObject.SetActive(false);
     }
 
     public void ToggleSession(bool enabled)

@@ -1,0 +1,7 @@
+{ "chats": [
+    { "name" : "Mom", "messages" : ["Please grab a couple of tomatoes and cheese on your way back home."] },
+    { "name" : "Luke", "messages" : ["Haven't you met my father yet? Come over, you gonna like him"] },
+    { "name" : "Trainer", "messages" : ["Do you remember you have a fencing class today?", "<align=\"right\">Sorry, I have to cancel it for today, got stuff to do"] },
+    { "name" : "Office", "messages" : ["Could you remind me, since when do you need a vacation?", "<align=\"right\">From October 1 and till October 15"] }
+] }
+  

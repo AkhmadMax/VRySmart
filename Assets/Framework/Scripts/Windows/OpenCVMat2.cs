@@ -65,6 +65,8 @@ public class OpenCVMat2 : MonoBehaviour
 
     void OnCompleteReadback(AsyncGPUReadbackRequest request)
     {
+        Debug.Log(request.height);
+
         RenderTexture.ReleaseTemporary(r);
 
 
