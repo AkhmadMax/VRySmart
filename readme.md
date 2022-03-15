@@ -55,7 +55,7 @@ To this aim, we present the VRySmart framework. Through either optical marker tr
 If you want to reference our work, please use the following bibtex entry:
 
 ```
-@inproceedings{degraenfruchard2021weirdinghaptics,
+@inproceedings{makhsadov2022vrysmart,
   author={Makhsadov, Akhmajon and Degraen, Donald and Zenner, Andr\'{e} and Kosmalla, Felix and Mushkina, Kamila and Kr\"{u}ger, Antonio},
   title={VRySmart: a Framework for Embedding Smart Devices in Virtual Reality},
   year={2022},
