@@ -2,6 +2,8 @@
 
 The VRySmart framework aims to integrate smart devices into virtual environments. For more details, please check out the CHI 2022 Late-Breaking Work below.
 
+![teaser](teaser.png)
+
 ## Usage
 
 ### Requirements
@@ -15,6 +17,12 @@ Minimum requirements:
 Hardware:
 - HTC Vive Pro
 - Smartphone
+
+## Scenarios
+
+Currently, four different scenarios are implemented.
+
+![scenarios](scenarios.png)
 
 ## Troubleshooting
 
