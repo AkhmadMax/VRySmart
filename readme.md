@@ -5,18 +5,45 @@ The VRySmart framework aims to integrate smart devices into virtual environments
 ![teaser](teaser.png)
 
 ## Usage
+Project contains assets for both Windows and Android targer platforms. 
+
+To test the scenarios:
+1. Build and Deploy the mobile app to your smartphone
+2. If you want to use Camera streaming start webserver.exe - Shortcut from the root folder
+3. Start Windows app
+4. Start Android app
+5. Android app requests host-ip address. Provide the ip-address of the PC where the main VR-app is running and press connect
 
 ### Requirements
 
 The framework is built in Unity using SteamVR.
 
 Minimum requirements:
-- Unity
+- Unity 2019.4
 - SteamVR
+- SRWorks runtime
 
 Hardware:
 - HTC Vive Pro
-- Smartphone
+- Smartphone (tested with Pixel 3)
+
+### Packages:
+- XR Plugin Management
+- XR Interactin Toolkit
+- Multiplayer HLAPI
+- OpenVR (Desktop)
+- Input System
+- ViveSR
+
+### Android support
+
+#### Packages:
+- AR Foundation
+- ARCore Extensions
+- ARCore XR Plugin
+
+#### Project settings
+Player -> Other Settings -> Active input handling -> Both 
 
 ## Scenarios
 
@@ -25,6 +52,9 @@ Currently, four different scenarios are implemented.
 ![scenarios](scenarios.png)
 
 ## Troubleshooting
+
+### Mobile app doesn't connect to the VR-host
+Check firewall settings on the PC, it might block the connection
 
 ### Checkout Issues
 
@@ -80,3 +110,10 @@ If you want to reference our work, please use the following bibtex entry:
 This software is made available under the terms of the [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.html) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+## Attributions
+https://sketchfab.com/3d-models/lightsaber-starwarshype-0dff87970ba44138982fcb132d3e667d
+
+https://freesound.org/people/joe93barlow/sounds/78674/
+
+https://freesound.org/people/gyzhor/sounds/47127/
