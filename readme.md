@@ -1,24 +1,19 @@
 # VRySmart
 
-The VRySmart framework aims to integrate smart devices into virtual environments. For more details, please check out the CHI 2022 Late-Breaking Work below.
+The VRySmart framework aims to integrate smart devices into virtual environments. 
+
+Project contains assets for both Windows and Android targer platforms. The core of the Framework is located under the Assets/Framework folder. The project integrates many different modules and at this point serves as a proof-of-concept or a starting point for further development of the ideas.
+
+For more details, please check out the CHI 2022 Late-Breaking Work below.
 
 ![teaser](teaser.png)
 
-## Usage
-Project contains assets for both Windows and Android targer platforms. 
+## Requirements
 
-To test the scenarios:
-1. Build and Deploy the mobile app to your smartphone
-2. If you want to use Camera streaming start webserver.exe - Shortcut from the root folder
-3. Start Windows app
-4. Start Android app
-5. Android app requests host-ip address. Provide the ip-address of the PC where the main VR-app is running and press connect
-
-### Requirements
-
-The framework is built in Unity using SteamVR.
+The framework is built in Unity using SteamVR and SRWorks for skin segmentation
 
 Minimum requirements:
+- (Important!) The framework relies on OpenCVForUnity plugin for Aruco Tracking. You would need to add it on your own into the assets folder. Or you can replace the plugin with your implementation or with free-to-use alternative
 - Unity 2019.4
 - SteamVR
 - SRWorks runtime
@@ -45,6 +40,18 @@ Hardware:
 #### Project settings
 Player -> Other Settings -> Active input handling -> Both 
 
+## Usage
+Main scene for the desktop app is: Desktop(OpenCVForUnity+RS+TS).unity
+Main scene for the mobile app is: Mobile(RS+TS).unity
+
+To test the scenarios:
+0. Make sure you added OpenCVForUnity into the assets
+1. Deploy the mobile app to your smartphone
+2. If you want to use Camera streaming start webserver.exe - Shortcut from the root folder
+3. Start Windows app
+4. Start Android app
+5. Android app requests host-ip address. Provide the ip-address of the PC where the main VR-app is running and press connect
+
 ## Scenarios
 
 Currently, four different scenarios are implemented.
@@ -63,6 +70,9 @@ If you receive a smudge error, please refer here: [Smudge Error while downloadin
 
 ### Camera stream is white
 Check Firewall settings, consider disabling it for the private network
+
+### Compliation conflicts for Android if deprecated scripts ViveSR_StaticColliderPool.cs, ViveSR_StaticColliderInfo.cs from ViveSR package are part of the project
+Remove the scripts
 
 ## Paper
 
