@@ -10,7 +10,7 @@ For more details, please check out the CHI 2022 Late-Breaking Work below.
 
 Link to the paper: [https://doi.org/10.1145/3491101.3519717](https://doi.org/10.1145/3491101.3519717)
 
-Link to the presentation video [https://www.youtube.com/watch?v=qPkUWzpyVe8](https://www.youtube.com/watch?v=qPkUWzpyVe8)
+Link to the presentation video: [https://www.youtube.com/watch?v=qPkUWzpyVe8](https://www.youtube.com/watch?v=qPkUWzpyVe8)
 
 
 [![Presentation Video](vrysmart_youtube.png)](http://www.youtube.com/watch?v=qPkUWzpyVe8 "VRySmart: a Framework for Embedding Smart Devices in Virtual Reality - Presentation")
