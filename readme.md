@@ -13,6 +13,8 @@ Link to the paper: [https://doi.org/10.1145/3491101.3519717](https://doi.org/10.
 Link to the presentation video [https://www.youtube.com/watch?v=qPkUWzpyVe8](https://www.youtube.com/watch?v=qPkUWzpyVe8)
 
 
+[![Presentation Video](http://img.youtube.com/vi/qPkUWzpyVe8/0.jpg)](http://www.youtube.com/watch?v=qPkUWzpyVe8 "VRySmart: a Framework for Embedding Smart Devices in Virtual Reality - Presentation")
+
 ## Requirements
 
 The framework is built in Unity using SteamVR and SRWorks for skin segmentation.
