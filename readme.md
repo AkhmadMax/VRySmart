@@ -1,19 +1,24 @@
+![teaser](teaser.png)
+
 # VRySmart
 
 The VRySmart framework aims to integrate smart devices into virtual environments. 
 
-Project contains assets for both Windows and Android targer platforms. The core of the Framework is located under the Assets/Framework folder. The project integrates many different modules and at this point serves as a proof-of-concept or a starting point for further development of the ideas.
+The project contains assets for both Windows and Android target platforms. The core of the framework is located under the Assets/Framework folder. The project integrates many different modules and at this point serves as a proof-of-concept or a starting point for further development.
 
 For more details, please check out the CHI 2022 Late-Breaking Work below.
 
-![teaser](teaser.png)
+Link to the paper: [https://doi.org/10.1145/3491101.3519717](https://doi.org/10.1145/3491101.3519717)
+
+Link to the presentation video [https://www.youtube.com/watch?v=qPkUWzpyVe8](https://www.youtube.com/watch?v=qPkUWzpyVe8)
+
 
 ## Requirements
 
-The framework is built in Unity using SteamVR and SRWorks for skin segmentation
+The framework is built in Unity using SteamVR and SRWorks for skin segmentation.
 
 Minimum requirements:
-- (Important!) The framework relies on OpenCVForUnity plugin for Aruco Tracking. You would need to add it on your own into the assets folder. Or you can replace the plugin with your implementation or with free-to-use alternative
+- (**Important!**) The framework relies on the OpenCVForUnity plugin for tracking Aruco markers. You can either purchase this asset [here](https://enoxsoftware.com/opencvforunity/), or use any other alternative for marker tracking.
 - Unity 2019.4
 - SteamVR
 - SRWorks runtime
@@ -41,16 +46,19 @@ Hardware:
 Player -> Other Settings -> Active input handling -> Both 
 
 ## Usage
+
 Main scene for the desktop app is: Desktop(OpenCVForUnity+RS+TS).unity
+
 Main scene for the mobile app is: Mobile(RS+TS).unity
 
 To test the scenarios:
-0. Make sure you added OpenCVForUnity into the assets
-1. Deploy the mobile app to your smartphone
-2. If you want to use Camera streaming start webserver.exe - Shortcut from the root folder
-3. Start Windows app
-4. Start Android app
-5. Android app requests host-ip address. Provide the ip-address of the PC where the main VR-app is running and press connect
+
+1. Make sure you added OpenCVForUnity into the assets
+2. Deploy the mobile app to your smartphone
+3. If you want to use Camera streaming start webserver.exe - Shortcut from the root folder
+4. Start Windows app
+5. Start Android app
+6. Android app requests host-ip address. Provide the ip-address of the PC where the main VR-app is running and press connect
 
 ## Scenarios
 
