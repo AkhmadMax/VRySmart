@@ -106,20 +106,21 @@ If you want to reference our work, please use the following bibtex entry:
 
 ```
 @inproceedings{makhsadov2022vrysmart,
-  author={Makhsadov, Akhmajon and Degraen, Donald and Zenner, Andr\'{e} and Kosmalla, Felix and Mushkina, Kamila and Kr\"{u}ger, Antonio},
-  title={VRySmart: a Framework for Embedding Smart Devices in Virtual Reality},
-  year={2022},
-  isbn = {},
+  author = {Makhsadov, Akhmajon and Degraen, Donald and Zenner, Andr\'{e} and Kosmalla, Felix and Mushkina, Kamila and Kr\"{u}ger, Antonio},
+  title = {VRySmart: A Framework for Embedding Smart Devices in Virtual Reality},
+  year = {2022},
+  isbn = {9781450391566},
   publisher = {Association for Computing Machinery},
   address = {New York, NY, USA},
   url = {https://doi.org/10.1145/3491101.3519717},
   doi = {10.1145/3491101.3519717},
-  booktitle = {Extended Abstracts of the 2022 CHI Conference on Human Factors in Computing Systems},
-  pages = {},
-  numpages = {},
-  keywords = {smart devices, virtual reality, haptic feedback, framework},
+  abstract = { As immersive virtual experiences find their way into our living room entertainment, they are becoming part of our daily technological consumption. However, state-of-the-art virtual reality (VR) remains disconnected from other digital devices in our environment, such as smartphones or tablets. As context switches between acting in the virtual environment and resolving external notifications negatively influence immersion, we look towards integrating smart devices into virtual experiences. To this aim, we present the VRySmart framework. Through either optical marker tracking or simultaneous localization and mapping (SLAM), embedded smart devices can be used as VR controllers with different levels of integration while their content is incorporated into the virtual context to support the plausibility of the illusion. To investigate user impressions, we conducted a study (N = 10) where participants used a smartphone in four different virtual scenarios. Participants positively assessed smart device usage in VR. We conclude by framing implications for future work.},
+  booktitle = {CHI Conference on Human Factors in Computing Systems Extended Abstracts},
+  articleno = {358},
+  numpages = {8},
+  keywords = {smart devices, framework., virtual reality, haptic feedback},
   location = {New Orleans, LA, USA},
-  series = {CHI '22}
+  series = {CHI EA '22}
 }
 ```
 
